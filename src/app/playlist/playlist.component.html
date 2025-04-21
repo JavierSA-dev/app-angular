@@ -1,7 +1,7 @@
 <div class="card">
     <h3>Tu playlist</h3>
     <ul>
-        @for (item of this.videosUser; track $index) {
+        @for (item of videoService.videosUser; track $index) {
             <li>
                 <a href="https://www.youtube.com/watch?v={{ item }}" target="_blank">https://www.youtube.com/watch?v={{ item }}</a>
             </li>

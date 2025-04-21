@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { VideoService } from '../video.service';
 
 @Component({
   selector: 'app-video-aleatorio',
@@ -8,20 +9,26 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class VideoAleatorioComponent implements OnInit {
   readonly VIDEO_URL = "https://www.youtube.com/embed/";
-  readonly videos = ["z8f7OvwZDfc", "JOPNVlVFT-o", "KbpNyhPqckM"];
   sanitizedUrl!: SafeResourceUrl;
   videoKey = "";
 
-
-  constructor(private sanitizer: DomSanitizer) {}
-
+  constructor(
+    private sanitizer: DomSanitizer,
+    private videoService: VideoService
+  ) {}
 
   ngOnInit() {
-    const randomIndex = Math.floor(Math.random() * this.videos.length);
-    const videoId = this.videos[randomIndex];
+    this.loadRandomVideo();
+  }
+  loadRandomVideo(): void {
+    const videos = this.videoService.getVideos();
+    if (videos.length === 0) return;
+  
+    const randomIndex = Math.floor(Math.random() * videos.length);
+    const videoId = videos[randomIndex];
     const fullUrl = this.VIDEO_URL + videoId;
-
-    this.videoKey = videoId; 
+  
+    this.videoKey = videoId;
     this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(fullUrl);
   }
 }
