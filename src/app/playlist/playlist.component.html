@@ -1,0 +1,24 @@
+<div class="card">
+    <h3>Tu playlist</h3>
+    <ul>
+        @for (item of this.videosUser; track $index) {
+            <li>
+                <a href="https://www.youtube.com/watch?v={{ item }}" target="_blank">https://www.youtube.com/watch?v={{ item }}</a>
+            </li>
+        }
+        <li class="add-video">
+            <input [(ngModel)]="nuevaUrl" type="text" id="nuevaUrl" placeholder="Añadir un nuevo video" />
+
+            <button class="btnAdd" (click)="addVideo()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M5 12l14 0" />
+                    <path d="M13 18l6 -6" />
+                    <path d="M13 6l6 6" />
+                </svg>
+            </button>
+        </li>
+    </ul>
+</div>

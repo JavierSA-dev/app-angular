@@ -3,3 +3,16 @@
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
+.btnAdd{
+    background-color: #28a745; /* Green color */
+    color: white;
+    border: none;
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.add-video{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

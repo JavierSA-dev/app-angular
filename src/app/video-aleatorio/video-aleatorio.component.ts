@@ -25,7 +25,3 @@ export class VideoAleatorioComponent implements OnInit {
     this.sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(fullUrl);
   }
 }
-// z8f7OvwZDfc&t
-// JOPNVlVFT-o
-// KbpNyhPqckM
-// https://www.youtube.com/watch?v=1an4b1vjdMQ
